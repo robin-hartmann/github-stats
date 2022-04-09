@@ -1,11 +1,7 @@
 # [GitHub Stats Visualization](https://github.com/jstrieb/github-stats)
 
-<a href="https://github.com/jstrieb/github-stats">
-
-![](https://github.com/jstrieb/github-stats/blob/master/generated/overview.svg)
-![](https://github.com/jstrieb/github-stats/blob/master/generated/languages.svg)
-
-</a>
+[![Robin Hartmann's GitHub Statistics](https://raw.githubusercontent.com/robin-hartmann/github-stats/master/generated/overview.svg)][github-stats-repo]
+[![Languages Used (By File Size)](https://raw.githubusercontent.com/robin-hartmann/github-stats/master/generated/languages.svg)][github-stats-repo]
 
 Generate visualizations of GitHub user and repository statistics using GitHub
 Actions.
@@ -135,3 +131,5 @@ releasing work publicly on the Web.
   [anuraghazra/github-readme-stats](https://github.com/anuraghazra/github-readme-stats)
 - Makes use of [GitHub Octicons](https://primer.style/octicons/) to precisely
   match the GitHub UI
+
+[github-stats-repo]: https://github.com/jstrieb/github-stats
