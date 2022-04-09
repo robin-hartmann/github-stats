@@ -1,12 +1,12 @@
-# [GitHub Stats Visualization][github-stats]
+# [GitHub Stats Visualization][github-stats-orig]
 
-![Robin Hartmann's GitHub Statistics](https://raw.githubusercontent.com/robin-hartmann/github-stats/master/generated/overview.svg)
-![Languages Used (By File Size)](https://raw.githubusercontent.com/robin-hartmann/github-stats/master/generated/languages.svg)
+[![Robin Hartmann's GitHub Statistics](https://raw.githubusercontent.com/robin-hartmann/github-stats/master/generated/overview.svg)][github-stats-custom]
+[![Languages Used (By File Size)](https://raw.githubusercontent.com/robin-hartmann/github-stats/master/generated/languages.svg)][github-stats-custom]
 
 Generate visualizations of GitHub user and repository statistics using GitHub
 Actions.
 
-This project is built on Jacob Strieb's [GitHub Stats Visualization][github-stats]
+This project is built on Jacob Strieb's [GitHub Stats Visualization][github-stats-orig]
 with some minor changes:
 
 - Stars, forks and views are only counted for repositories, where you are owner or collaborator
@@ -130,10 +130,11 @@ releasing work publicly on the Web.
 
 # Related Projects
 
-- Built upon [jstrieb/github-stats][github-stats]
+- Built upon [jstrieb/github-stats][github-stats-orig]
 - Inspired by a desire to improve upon
   [anuraghazra/github-readme-stats](https://github.com/anuraghazra/github-readme-stats)
 - Makes use of [GitHub Octicons](https://primer.style/octicons/) to precisely
   match the GitHub UI
 
-[github-stats]: https://github.com/jstrieb/github-stats#readme
+[github-stats-orig]: https://github.com/jstrieb/github-stats#readme
+[github-stats-custom]: https://github.com/robin-hartmann/github-stats#readme
