@@ -82,9 +82,9 @@ For more information on inaccuracies, see issue
    - To ignore certain repos, add them (in owner/name format e.g.,
      `jstrieb/github-stats`) separated by commas to a new secret—created as
      before—called `EXCLUDED`.
-   - To ignore certain languages, add them (separated by commas) to a new
-     secret called `EXCLUDED_LANGS`. For example, to exclude HTML and TeX you
-     could set the value to `html,tex`.
+   - To ignore certain languages, add them (separated by commas) to an
+     environment variable called `EXCLUDED_LANGS`. For example,
+     to exclude HTML and TeX you could set the value to `html,tex`.
 6. Go to the [Actions
    Page](../../actions?query=workflow%3A"Generate+Stats+Images") and press "Run
    Workflow" on the right side of the screen to generate images for the first
