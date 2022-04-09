@@ -136,4 +136,4 @@ releasing work publicly on the Web.
 - Makes use of [GitHub Octicons](https://primer.style/octicons/) to precisely
   match the GitHub UI
 
-[github-stats]: https://github.com/jstrieb/github-stats
+[github-stats]: https://github.com/jstrieb/github-stats#readme
