@@ -270,7 +270,8 @@ class Stats(object):
         self._forks: Optional[int] = None
         self._total_contributions: Optional[int] = None
         self._languages: Optional[Dict[str, Any]] = None
-        self._repos: Optional[Set[str]] = None
+        self._owned_repos: Optional[Set[str]] = None
+        self._contrib_repos: Optional[Set[str]] = None
         self._lines_changed: Optional[Tuple[int, int]] = None
         self._views: Optional[int] = None
 
@@ -302,7 +303,8 @@ Languages:
         self._stargazers = 0
         self._forks = 0
         self._languages = dict()
-        self._repos = set()
+        self._owned_repos = set()
+        self._contrib_repos = set()
 
         exclude_langs_lower = {x.lower() for x in self._exclude_langs}
 
@@ -333,19 +335,41 @@ Languages:
                 raw_results.get("data", {}).get("viewer", {}).get("repositories", {})
             )
 
-            repos = owned_repos.get("nodes", [])
-            if not self._ignore_forked_repos:
-                repos += contrib_repos.get("nodes", [])
+            owned_repos_nodes = owned_repos.get("nodes", [])
+            contrib_repos_nodes = contrib_repos.get("nodes", [])
 
-            for repo in repos:
+            for repo in owned_repos_nodes:
                 if repo is None:
                     continue
                 name = repo.get("nameWithOwner")
-                if name in self._repos or name in self._exclude_repos:
+                if name in self._owned_repos or name in self._exclude_repos:
                     continue
-                self._repos.add(name)
+                self._owned_repos.add(name)
                 self._stargazers += repo.get("stargazers").get("totalCount", 0)
                 self._forks += repo.get("forkCount", 0)
+
+                for lang in repo.get("languages", {}).get("edges", []):
+                    name = lang.get("node", {}).get("name", "Other")
+                    languages = await self.languages
+                    if name.lower() in exclude_langs_lower:
+                        continue
+                    if name in languages:
+                        languages[name]["size"] += lang.get("size", 0)
+                        languages[name]["occurrences"] += 1
+                    else:
+                        languages[name] = {
+                            "size": lang.get("size", 0),
+                            "occurrences": 1,
+                            "color": lang.get("node", {}).get("color"),
+                        }
+
+            for repo in contrib_repos_nodes:
+                if repo is None:
+                    continue
+                name = repo.get("nameWithOwner")
+                if name in self._owned_repos or name in self._contrib_repos or name in self._exclude_repos:
+                    continue
+                self._contrib_repos.add(name)
 
                 for lang in repo.get("languages", {}).get("edges", []):
                     name = lang.get("node", {}).get("name", "Other")
@@ -436,15 +460,26 @@ Languages:
         return {k: v.get("prop", 0) for (k, v) in self._languages.items()}
 
     @property
-    async def repos(self) -> Set[str]:
+    async def owned_repos(self) -> Set[str]:
         """
         :return: list of names of user's repos
         """
-        if self._repos is not None:
-            return self._repos
+        if self._owned_repos is not None:
+            return self._owned_repos
         await self.get_stats()
-        assert self._repos is not None
-        return self._repos
+        assert self._owned_repos is not None
+        return self._owned_repos
+
+    @property
+    async def contrib_repos(self) -> Set[str]:
+        """
+        :return: list of names of user's repos
+        """
+        if self._contrib_repos is not None:
+            return self._contrib_repos
+        await self.get_stats()
+        assert self._contrib_repos is not None
+        return self._contrib_repos
 
     @property
     async def total_contributions(self) -> int:
@@ -483,7 +518,8 @@ Languages:
             return self._lines_changed
         additions = 0
         deletions = 0
-        for repo in await self.repos:
+        all_repos = (await self.owned_repos).union(await self.contrib_repos)
+        for repo in all_repos:
             r = await self.queries.query_rest(f"/repos/{repo}/stats/contributors")
             for author_obj in r:
                 # Handle malformed response from the API by skipping this repo
@@ -512,7 +548,7 @@ Languages:
             return self._views
 
         total = 0
-        for repo in await self.repos:
+        for repo in await self.owned_repos:
             r = await self.queries.query_rest(f"/repos/{repo}/traffic/views")
             for view in r.get("views", []):
                 total += view.get("count", 0)
