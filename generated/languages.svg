@@ -43,7 +43,7 @@ li {
   display: inline-flex;
   line-height: 26px;
   font-size: 14px;
-  margin-right: 1ch;
+  margin-right: 2ch;
   align-items: center;
   flex-wrap: nowrap;
 }
