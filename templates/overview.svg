@@ -27,7 +27,7 @@ foreignObject {
 h2 {
   margin-top: -2px;
   margin-bottom: 4px;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
   color: rgb(36, 41, 46);
   fill: rgb(36, 41, 46);
@@ -41,7 +41,7 @@ table {
 
 td {
   padding: 4px;
-  font-size: 14px;
+  font-size: 13px;
   color: rgb(88, 96, 105);
 }
 
