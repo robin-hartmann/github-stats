@@ -58,6 +58,8 @@ async def generate_languages(s: Stats) -> None:
     with open("templates/languages.svg", "r") as f:
         output = f.read()
 
+    output = re.sub("{{ name }}", await s.name, output)
+
     progress = ""
     lang_list = ""
     sorted_languages = sorted(

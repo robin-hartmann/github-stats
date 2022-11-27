@@ -60,7 +60,7 @@ td {
 <foreignObject height="100%" width="100%">
 <div xmlns="http://www.w3.org/1999/xhtml">
 
-<h2>{{ name }}'s GitHub Stats</h2>
+<h2>GitHub Statistics for {{ name }}</h2>
 
 <table>
 <tbody>
