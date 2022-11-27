@@ -12,8 +12,6 @@ svg {
   fill: white;
   stroke: rgb(225, 228, 232);
   stroke-width: 1px;
-  rx: 6px;
-  ry: 6px;
 }
 
 foreignObject {
@@ -83,7 +81,7 @@ div.ellipsis {
   color: rgb(88, 96, 105)
 }
 </style>
-<rect id="background" />
+<rect id="background" rx="6px" ry="6px" />
 <!--
   Safari requires height and width to be set here,
   otherwise the resulting image is blank
