@@ -19,8 +19,6 @@ svg {
 }
 
 foreignObject {
-  width: 100%;
-  height: 100%;
   padding: 18px;
 }
 
@@ -57,7 +55,11 @@ td {
 }
 </style>
 <rect id="background" />
-<foreignObject>
+<!--
+  Safari requires height and width to be set here,
+  otherwise the resulting image is blank
+-->
+<foreignObject height="100%" width="100%">
 <div xmlns="http://www.w3.org/1999/xhtml">
 
 <h2>{{ name }}'s GitHub Stats</h2>
