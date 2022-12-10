@@ -63,8 +63,8 @@ div.ellipsis {
   background-color: rgb(225, 228, 232);
   border-radius: 6px;
   outline: 1px solid transparent;
-  margin-top: 13px;
-  margin-bottom: 12px;
+  margin-top: 15px;
+  margin-bottom: 10px;
 }
 
 .progress-item {
