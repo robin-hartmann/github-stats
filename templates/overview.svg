@@ -22,7 +22,7 @@ foreignObject {
 
 h2 {
   margin-top: -2px;
-  margin-bottom: 4px;
+  margin-bottom: 7px;
   font-size: 15px;
   font-weight: 600;
   color: rgb(36, 41, 46);

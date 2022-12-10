@@ -20,7 +20,7 @@ foreignObject {
 
 h2 {
   margin-top: -2px;
-  margin-bottom: 12px;
+  margin-bottom: 0;
   line-height: 18px;
   font-size: 15px;
   font-weight: 600;
@@ -63,7 +63,8 @@ div.ellipsis {
   background-color: rgb(225, 228, 232);
   border-radius: 6px;
   outline: 1px solid transparent;
-  margin-bottom: 8px;
+  margin-top: 13px;
+  margin-bottom: 12px;
 }
 
 .progress-item {
