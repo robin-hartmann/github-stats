@@ -1,7 +1,7 @@
 # 📊 [GitHub Stats Visualization][github-stats-orig]
 
-[![Robin Hartmann's GitHub Statistics](https://raw.githubusercontent.com/robin-hartmann/github-stats/master/generated/overview.svg)][github-stats-custom]
-[![Languages Used (By File Size)](https://raw.githubusercontent.com/robin-hartmann/github-stats/master/generated/languages.svg)][github-stats-custom]
+[![GitHub Statistics for Robin Hartmann](https://raw.githubusercontent.com/robin-hartmann/github-stats/master/generated/overview.svg)][github-stats-custom]
+[![Languages used by Robin Hartmann](https://raw.githubusercontent.com/robin-hartmann/github-stats/master/generated/languages.svg)][github-stats-custom]
 
 Generate visualizations of GitHub user and repository statistics using GitHub
 Actions.
