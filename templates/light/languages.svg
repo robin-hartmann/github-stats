@@ -1,0 +1,108 @@
+<svg height="210px" width="320px" xmlns="http://www.w3.org/2000/svg">
+<style>
+svg {
+  font-family: Arial, sans-serif;
+}
+
+#background {
+  x: 5px;
+  y: 5px;
+  height: calc(210px - 2 * 5px);
+  width: calc(320px - 2 * 5px);
+  fill: white;
+  stroke: rgb(225, 228, 232);
+  stroke-width: 1px;
+}
+
+foreignObject {
+  padding: 18px;
+}
+
+h2 {
+  margin-top: -2px;
+  margin-bottom: 0;
+  line-height: 18px;
+  font-size: 15px;
+  font-weight: 600;
+  color: rgb(36, 41, 46);
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+li {
+  display: inline-flex;
+  line-height: 26px;
+  font-size: 13px;
+  margin-right: 1ch;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+div.ellipsis {
+  height: calc(210px - 2 * 18px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.octicon {
+  fill: rgb(88, 96, 105);
+  margin-right: 0.25ch;
+  vertical-align: top;
+}
+
+.progress {
+  display: flex;
+  height: 8px;
+  overflow: hidden;
+  background-color: rgb(225, 228, 232);
+  border-radius: 6px;
+  outline: 1px solid transparent;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.progress-item {
+  outline: 2px solid rgb(225, 228, 232);
+  border-collapse: collapse;
+}
+
+.lang {
+  font-weight: 600;
+  margin-right: 0.75ch;
+  color: rgb(36, 41, 46);
+}
+
+.percent {
+  color: rgb(88, 96, 105)
+}
+</style>
+<rect id="background" rx="6px" ry="6px" />
+<!--
+  Safari requires height and width to be set here,
+  otherwise the resulting image is blank
+-->
+<foreignObject height="100%" width="100%">
+<div xmlns="http://www.w3.org/1999/xhtml" class="ellipsis">
+
+<h2>Languages used by {{ name }}</h2>
+
+<div>
+<span class="progress">
+{{ progress }}
+</span>
+</div>
+
+<ul>
+
+{{ lang_list }}
+
+</ul>
+
+</div>
+</foreignObject>
+</svg>

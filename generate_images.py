@@ -27,12 +27,12 @@ def generate_output_folder() -> None:
 ################################################################################
 
 
-async def generate_overview(s: Stats) -> None:
+async def generate_overview(s: Stats, kind: str) -> None:
     """
     Generate an SVG badge with summary statistics
     :param s: Represents user's GitHub statistics
     """
-    with open("templates/overview.svg", "r") as f:
+    with open(f"templates/{kind}/overview.svg", "r") as f:
         output = f.read()
 
     output = re.sub("{{ name }}", await s.name, output)
@@ -46,16 +46,16 @@ async def generate_overview(s: Stats) -> None:
     output = re.sub("{{ repos }}", f"{len(repos):,}", output)
 
     generate_output_folder()
-    with open("generated/overview.svg", "w") as f:
+    with open(f"generated/{kind}/overview.svg", "w") as f:
         f.write(output)
 
 
-async def generate_languages(s: Stats) -> None:
+async def generate_languages(s: Stats, kind: str) -> None:
     """
     Generate an SVG badge with summary languages used
     :param s: Represents user's GitHub statistics
     """
-    with open("templates/languages.svg", "r") as f:
+    with open(f"templates/{kind}/languages.svg", "r") as f:
         output = f.read()
 
     output = re.sub("{{ name }}", await s.name, output)
@@ -88,7 +88,7 @@ fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8z"></path></svg>
     output = re.sub(r"{{ lang_list }}", lang_list, output)
 
     generate_output_folder()
-    with open("generated/languages.svg", "w") as f:
+    with open(f"generated/{kind}/languages.svg", "w") as f:
         f.write(output)
 
 
@@ -124,7 +124,11 @@ async def main() -> None:
             exclude_repos=excluded_repos,
             exclude_langs=excluded_langs,
         )
-        await asyncio.gather(generate_languages(s), generate_overview(s))
+        await asyncio.gather(
+            generate_languages(s, "auto"), generate_overview(s, "auto"),
+            generate_languages(s, "dark"), generate_overview(s, "dark"),
+            generate_languages(s, "light"), generate_overview(s, "light"),
+        )
 
 
 if __name__ == "__main__":
