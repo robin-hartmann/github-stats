@@ -25,7 +25,6 @@ h2 {
   font-size: 15px;
   font-weight: 600;
   color: rgb(36, 41, 46);
-  fill: rgb(36, 41, 46);
 }
 
 ul {
@@ -80,6 +79,37 @@ div.ellipsis {
 
 .percent {
   color: rgb(88, 96, 105)
+}
+
+@media (prefers-color-scheme: dark) {
+  #background {
+    fill: rgb(13, 17, 23);
+    stroke-width: 0.5px;
+  }
+
+  h2 {
+    color: rgb(201, 209, 217);
+  }
+
+  .octicon {
+    fill: rgb(139, 148, 158);
+  }
+
+  .progress {
+    background-color: rgba(110, 118, 129, 0.4);
+  }
+
+  .progress-item {
+    outline: 2px solid rgb(57, 63, 71);
+  }
+
+  .lang {
+    color: rgb(201, 209, 217);
+  }
+
+  .percent {
+    color: rgb(139, 148, 158);
+  }
 }
 </style>
 <rect id="background" rx="6px" ry="6px" />
