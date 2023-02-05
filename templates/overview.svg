@@ -26,7 +26,6 @@ h2 {
   font-size: 15px;
   font-weight: 600;
   color: rgb(36, 41, 46);
-  fill: rgb(36, 41, 46);
 }
 
 table {
@@ -50,6 +49,25 @@ td {
 .score {
   direction: rtl;
   text-align: right;
+}
+
+@media (prefers-color-scheme: dark) {
+  #background {
+    fill: rgb(13, 17, 23);
+    stroke-width: 0.5px;
+  }
+
+  h2 {
+    color: rgb(201, 209, 217);
+  }
+
+  td {
+    color: rgb(201, 209, 217);
+  }
+
+  .octicon {
+    fill: rgb(139, 148, 158);
+  }
 }
 </style>
 <rect id="background" rx="6px" ry="6px" />
