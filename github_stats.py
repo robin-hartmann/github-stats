@@ -489,7 +489,7 @@ Languages:
         if self._total_contributions is not None:
             return self._total_contributions
 
-        self._total_contributions = 0
+        contributions = 0
         years = (
             (await self.queries.query(Queries.contrib_years()))
             .get("data", {})
@@ -504,10 +504,13 @@ Languages:
             .values()
         )
         for year in by_year:
-            self._total_contributions += year.get("contributionCalendar", {}).get(
+            contributions += year.get("contributionCalendar", {}).get(
                 "totalContributions", 0
             )
-        return cast(int, self._total_contributions)
+
+        self._total_contributions = contributions
+
+        return self._total_contributions
 
     @property
     async def lines_changed(self) -> Tuple[int, int]:
