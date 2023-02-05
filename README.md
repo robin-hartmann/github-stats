@@ -94,14 +94,14 @@ For more information on inaccuracies, see issue
    - The images will be automatically regenerated every 24 hours, but they can
      be regenerated manually by running the workflow this way.
 7. Take a look at the images that have been created in the following folders:
-   - [`generated/auto`](generated/auto)
-   - [`generated/dark`](generated/dark)
-   - [`generated/light`](generated/light)
+   - [`generated/auto`](generated/auto): automatic theme (i.e., sensitive to `prefers-color-scheme`)
+   - [`generated/dark`](generated/dark): dark theme only
+   - [`generated/light`](generated/light): light theme only
 8. To add your statistics to your GitHub Profile README, copy and paste the
    following lines of code into your markdown content
-   (they will automatically match the viewer's GitHub theme). Replace `username`
-   with your GitHub username and `User Name` with your name written out in full
-   (e.g., `Robin Hartmann`):
+   (they will [automatically match the viewer's GitHub theme](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#specifying-the-theme-an-image-is-shown-to)).
+   Replace `username` with your GitHub username and `User Name` with
+   your name written out in full (e.g., `Robin Hartmann`):
    ```md
    [<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/username/github-stats/master/generated/dark/overview.svg"><img alt="GitHub Statistics for User Name" src="https://raw.githubusercontent.com/username/github-stats/master/generated/light/overview.svg"></picture>](https://github.com/username/github-stats#readme)
    ```
