@@ -11,7 +11,7 @@ with some minor changes:
 
 - Stars, forks and views are only counted for repositories, where you are owner or collaborator
 - Templates used for image generation have been reworked
-- SVGs are generated in different themes: light, dark, and auto (i.e., sensitive to `prefers-color-scheme`)
+- Images are generated in different themes: light, dark, and auto (i.e., sensitive to `prefers-color-scheme`)
 
 ## Background
 
