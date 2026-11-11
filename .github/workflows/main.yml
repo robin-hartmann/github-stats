@@ -12,18 +12,17 @@ permissions:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04-arm
 
     steps:
     # Check out repository under $GITHUB_WORKSPACE, so the job can access it
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v7
 
-    # Run using Python 3.8 for consistency and aiohttp
-    - name: Set up Python 3.8
-      uses: actions/setup-python@v4
+    # Run using Python 3.15 for consistency
+    - name: Set up Python 3.15
+      uses: actions/setup-python@v7
       with:
-        python-version: '3.8'
-        architecture: 'x64'
+        python-version: '3.15'
         cache: 'pip'
 
     # Install dependencies with `pip`
